@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace PadawanProject.Models
         [Key]
         public int Id { get; set; }
         public string Descricao { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Cor> CorFK { get; set; }
     }
 }

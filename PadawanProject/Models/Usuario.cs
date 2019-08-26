@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,7 +20,7 @@ namespace PadawanProject.Models
         public bool Cidade { get; set; }
         public bool Noturno { get; set; }
         public bool Carona { get; set; }
-
+        [JsonIgnore]
         public virtual ICollection<Usuario> UsuarioFK { get; set; }
 
         private ICollection<Usuario> usuCriacaoFK;

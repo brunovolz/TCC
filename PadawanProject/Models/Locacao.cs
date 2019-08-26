@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,22 +22,28 @@ namespace PadawanProject.Models
         public int Usuario { get; set; }
         public int TermoDeUso { get; set; }
         public int Status { get; set; }
-
+        [JsonIgnore]
         [ForeignKey("Cliente")]
         public virtual Cliente ClienteFK { get; set; }
-
+        [JsonIgnore]
         [ForeignKey("TipoVeiculo")]
         public virtual TipoVeiculo TipoVeiculoFK { get; set; }
+        [JsonIgnore]
         [ForeignKey("Marca")]
         public virtual Marca MarcaFK { get; set; }
+        [JsonIgnore]
         [ForeignKey("Modelo")]
         public virtual Modelo ModeloFK { get; set; }
+        [JsonIgnore]
         [ForeignKey("Cor")]
         public virtual Cor CorFK { get; set; }
+        [JsonIgnore]
         [ForeignKey("Periodo")]
         public virtual Periodo PeriodoFK { get; set; }
+        [JsonIgnore]
         [ForeignKey("Usuario")]
         public virtual Usuario UsuarioFK { get; set; }
+        [JsonIgnore]
         [ForeignKey("TermoDeUso")]
         public virtual TermoUso TermoFK { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace PadawanProject.Models
         public DateTime InicioLocacao { get; set; }
         public DateTime FimLocacao { get; set; }
         public float Valor { get; set; } = 0;
+        [JsonIgnore]
         public virtual ICollection<Periodo> PeriodoFK { get; set; }
     }
 }
