@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/TermosUso
-        public IQueryable<TermoUso> GettermosDeUso()
+        public IQueryable<TermoUso> GetTermosUso()
         {
-            return db.termosDeUso;
+            return db.TermosUso;
         }
 
         // GET: api/TermosUso/5
         [ResponseType(typeof(TermoUso))]
         public async Task<IHttpActionResult> GetTermoUso(int id)
         {
-            TermoUso termoUso = await db.termosDeUso.FindAsync(id);
+            TermoUso termoUso = await db.TermosUso.FindAsync(id);
             if (termoUso == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.termosDeUso.Add(termoUso);
+            db.TermosUso.Add(termoUso);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = termoUso.Id }, termoUso);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(TermoUso))]
         public async Task<IHttpActionResult> DeleteTermoUso(int id)
         {
-            TermoUso termoUso = await db.termosDeUso.FindAsync(id);
+            TermoUso termoUso = await db.TermosUso.FindAsync(id);
             if (termoUso == null)
             {
                 return NotFound();
             }
 
-            db.termosDeUso.Remove(termoUso);
+            db.TermosUso.Remove(termoUso);
             await db.SaveChangesAsync();
 
             return Ok(termoUso);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool TermoUsoExists(int id)
         {
-            return db.termosDeUso.Count(e => e.Id == id) > 0;
+            return db.TermosUso.Count(e => e.Id == id) > 0;
         }
     }
 }

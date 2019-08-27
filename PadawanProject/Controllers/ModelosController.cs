@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Modelos
-        public IQueryable<Modelo> Getmodelos()
+        public IQueryable<Modelo> GetModelos()
         {
-            return db.modelos;
+            return db.Modelos;
         }
 
         // GET: api/Modelos/5
         [ResponseType(typeof(Modelo))]
         public async Task<IHttpActionResult> GetModelo(int id)
         {
-            Modelo modelo = await db.modelos.FindAsync(id);
+            Modelo modelo = await db.Modelos.FindAsync(id);
             if (modelo == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.modelos.Add(modelo);
+            db.Modelos.Add(modelo);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = modelo.Id }, modelo);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(Modelo))]
         public async Task<IHttpActionResult> DeleteModelo(int id)
         {
-            Modelo modelo = await db.modelos.FindAsync(id);
+            Modelo modelo = await db.Modelos.FindAsync(id);
             if (modelo == null)
             {
                 return NotFound();
             }
 
-            db.modelos.Remove(modelo);
+            db.Modelos.Remove(modelo);
             await db.SaveChangesAsync();
 
             return Ok(modelo);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool ModeloExists(int id)
         {
-            return db.modelos.Count(e => e.Id == id) > 0;
+            return db.Modelos.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -12,8 +12,5 @@ namespace PadawanProject.Models
         [Key]
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Matricula { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Cliente> ClienteFK { get; set; }
     }
 }

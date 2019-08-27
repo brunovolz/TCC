@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Usuarios
-        public IQueryable<Usuario> Getusuarios()
+        public IQueryable<Usuario> GetUsuarios()
         {
-            return db.usuarios;
+            return db.Usuarios;
         }
 
         // GET: api/Usuarios/5
         [ResponseType(typeof(Usuario))]
         public async Task<IHttpActionResult> GetUsuario(int id)
         {
-            Usuario usuario = await db.usuarios.FindAsync(id);
+            Usuario usuario = await db.Usuarios.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.usuarios.Add(usuario);
+            db.Usuarios.Add(usuario);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = usuario.Id }, usuario);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(Usuario))]
         public async Task<IHttpActionResult> DeleteUsuario(int id)
         {
-            Usuario usuario = await db.usuarios.FindAsync(id);
+            Usuario usuario = await db.Usuarios.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
             }
 
-            db.usuarios.Remove(usuario);
+            db.Usuarios.Remove(usuario);
             await db.SaveChangesAsync();
 
             return Ok(usuario);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return db.usuarios.Count(e => e.Id == id) > 0;
+            return db.Usuarios.Count(e => e.Id == id) > 0;
         }
     }
 }

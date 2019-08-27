@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PadawanProject.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,39 +13,14 @@ namespace PadawanProject.Models
     {
         [Key]
         public int Id { get; set; }
-        public int Cliente { get; set; }
-        public int TipoVeiculo { get; set; }
-        public int Marca { get; set; }
-        public int Modelo { get; set; }
-        public int Cor { get; set; }
-        public string PlacaVeiculo { get; set; }
-        public int Periodo { get; set; }
-        public int Usuario { get; set; }
-        public int TermoDeUso { get; set; }
-        public int Status { get; set; }
-        [JsonIgnore]
-        [ForeignKey("Cliente")]
-        public virtual Cliente ClienteFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("TipoVeiculo")]
-        public virtual TipoVeiculo TipoVeiculoFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("Marca")]
-        public virtual Marca MarcaFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("Modelo")]
-        public virtual Modelo ModeloFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("Cor")]
-        public virtual Cor CorFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("Periodo")]
-        public virtual Periodo PeriodoFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("Usuario")]
-        public virtual Usuario UsuarioFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("TermoDeUso")]
-        public virtual TermoUso TermoFK { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual TipoVeiculo TipoVeiculo { get; set; }
+        public virtual Marca Marca { get; set; }
+        public virtual Modelo Modelo { get; set; }
+        public virtual Cor Cor { get; set; }
+        public virtual Periodo Periodo { get; set; }
+        public virtual Usuario Usuario{ get; set; }
+        public virtual TermoUso Termo { get; set; }
+        public virtual StatusLocacao StatusLocacao { get; set; }
     }
 }

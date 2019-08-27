@@ -12,7 +12,5 @@ namespace PadawanProject.Models
         [Key]
         public int Id { get; set; }
         public string Descricao { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<TipoVeiculo> TipoVeiculoFK { get; set; }
     }
 }

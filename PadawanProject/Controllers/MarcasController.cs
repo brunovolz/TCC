@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Marcas
-        public IQueryable<Marca> Getmarcas()
+        public IQueryable<Marca> GetMarcas()
         {
-            return db.marcas;
+            return db.Marcas;
         }
 
         // GET: api/Marcas/5
         [ResponseType(typeof(Marca))]
         public async Task<IHttpActionResult> GetMarca(int id)
         {
-            Marca marca = await db.marcas.FindAsync(id);
+            Marca marca = await db.Marcas.FindAsync(id);
             if (marca == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.marcas.Add(marca);
+            db.Marcas.Add(marca);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = marca.Id }, marca);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(Marca))]
         public async Task<IHttpActionResult> DeleteMarca(int id)
         {
-            Marca marca = await db.marcas.FindAsync(id);
+            Marca marca = await db.Marcas.FindAsync(id);
             if (marca == null)
             {
                 return NotFound();
             }
 
-            db.marcas.Remove(marca);
+            db.Marcas.Remove(marca);
             await db.SaveChangesAsync();
 
             return Ok(marca);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool MarcaExists(int id)
         {
-            return db.marcas.Count(e => e.Id == id) > 0;
+            return db.Marcas.Count(e => e.Id == id) > 0;
         }
     }
 }

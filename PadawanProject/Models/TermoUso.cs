@@ -13,7 +13,5 @@ namespace PadawanProject.Models
         public int Id { get; set; }
         public string Descricao { get; set; }
         public bool Ativo { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<TermoUso> TermoFK { get; set; }
     }
 }

@@ -12,11 +12,8 @@ namespace PadawanProject.Models
     {
         [Key]
         public int Id { get; set; }
-        public int Marca { get; set; }
         public string Descricao { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Marca> MarcaFK { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Modelo> ModeloFK { get; set; }
+        public virtual Marca Marca { get; set; }
+
     }
 }

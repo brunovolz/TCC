@@ -14,11 +14,5 @@ namespace PadawanProject.Models
         public int UsuarioAlteracao { get; set; } = 0;
         public DateTime DataCriacao { get; set; } = DateTime.Now;
         public DateTime DataAlteracao { get; set; } = DateTime.Now;
-        [JsonIgnore]
-        [ForeignKey("UsuarioCriacao")]
-        public virtual ICollection<Usuario> UsuCriacaoFK { get; set; }
-        [JsonIgnore]
-        [ForeignKey("UsuarioAlteracao")]
-        public virtual ICollection<Usuario> UsuAlteracaFK { get; set; }
     }
 }

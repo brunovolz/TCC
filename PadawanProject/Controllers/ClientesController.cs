@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Clientes
-        public IQueryable<Cliente> Getclientes()
+        public IQueryable<Cliente> GetClientes()
         {
-            return db.clientes;
+            return db.Clientes;
         }
 
         // GET: api/Clientes/5
         [ResponseType(typeof(Cliente))]
         public async Task<IHttpActionResult> GetCliente(int id)
         {
-            Cliente cliente = await db.clientes.FindAsync(id);
+            Cliente cliente = await db.Clientes.FindAsync(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.clientes.Add(cliente);
+            db.Clientes.Add(cliente);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = cliente.Id }, cliente);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(Cliente))]
         public async Task<IHttpActionResult> DeleteCliente(int id)
         {
-            Cliente cliente = await db.clientes.FindAsync(id);
+            Cliente cliente = await db.Clientes.FindAsync(id);
             if (cliente == null)
             {
                 return NotFound();
             }
 
-            db.clientes.Remove(cliente);
+            db.Clientes.Remove(cliente);
             await db.SaveChangesAsync();
 
             return Ok(cliente);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool ClienteExists(int id)
         {
-            return db.clientes.Count(e => e.Id == id) > 0;
+            return db.Clientes.Count(e => e.Id == id) > 0;
         }
     }
 }

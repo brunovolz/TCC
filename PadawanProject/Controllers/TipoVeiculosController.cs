@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/TipoVeiculos
-        public IQueryable<TipoVeiculo> GettipoVeiculos()
+        public IQueryable<TipoVeiculo> GetTipoVeiculos()
         {
-            return db.tipoVeiculos;
+            return db.TipoVeiculos;
         }
 
         // GET: api/TipoVeiculos/5
         [ResponseType(typeof(TipoVeiculo))]
         public async Task<IHttpActionResult> GetTipoVeiculo(int id)
         {
-            TipoVeiculo tipoVeiculo = await db.tipoVeiculos.FindAsync(id);
+            TipoVeiculo tipoVeiculo = await db.TipoVeiculos.FindAsync(id);
             if (tipoVeiculo == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.tipoVeiculos.Add(tipoVeiculo);
+            db.TipoVeiculos.Add(tipoVeiculo);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = tipoVeiculo.Id }, tipoVeiculo);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(TipoVeiculo))]
         public async Task<IHttpActionResult> DeleteTipoVeiculo(int id)
         {
-            TipoVeiculo tipoVeiculo = await db.tipoVeiculos.FindAsync(id);
+            TipoVeiculo tipoVeiculo = await db.TipoVeiculos.FindAsync(id);
             if (tipoVeiculo == null)
             {
                 return NotFound();
             }
 
-            db.tipoVeiculos.Remove(tipoVeiculo);
+            db.TipoVeiculos.Remove(tipoVeiculo);
             await db.SaveChangesAsync();
 
             return Ok(tipoVeiculo);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool TipoVeiculoExists(int id)
         {
-            return db.tipoVeiculos.Count(e => e.Id == id) > 0;
+            return db.TipoVeiculos.Count(e => e.Id == id) > 0;
         }
     }
 }

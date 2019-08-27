@@ -7,7 +7,7 @@ namespace PadawanProject.Enums
 {
     public enum StatusLocacao
     {
-        Solteiro,
+        Vigente,
         EmAprovação,
         FilaDeEspera
     }

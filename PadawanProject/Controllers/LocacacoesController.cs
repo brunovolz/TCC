@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Locacacoes
-        public IQueryable<Locacao> Getlocacoes()
+        public IQueryable<Locacao> GetLocacoes()
         {
-            return db.locacoes;
+            return db.Locacoes;
         }
 
         // GET: api/Locacacoes/5
         [ResponseType(typeof(Locacao))]
         public async Task<IHttpActionResult> GetLocacao(int id)
         {
-            Locacao locacao = await db.locacoes.FindAsync(id);
+            Locacao locacao = await db.Locacoes.FindAsync(id);
             if (locacao == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.locacoes.Add(locacao);
+            db.Locacoes.Add(locacao);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = locacao.Id }, locacao);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(Locacao))]
         public async Task<IHttpActionResult> DeleteLocacao(int id)
         {
-            Locacao locacao = await db.locacoes.FindAsync(id);
+            Locacao locacao = await db.Locacoes.FindAsync(id);
             if (locacao == null)
             {
                 return NotFound();
             }
 
-            db.locacoes.Remove(locacao);
+            db.Locacoes.Remove(locacao);
             await db.SaveChangesAsync();
 
             return Ok(locacao);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool LocacaoExists(int id)
         {
-            return db.locacoes.Count(e => e.Id == id) > 0;
+            return db.Locacoes.Count(e => e.Id == id) > 0;
         }
     }
 }

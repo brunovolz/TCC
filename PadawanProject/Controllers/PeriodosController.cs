@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Periodos
-        public IQueryable<Periodo> Getperiodos()
+        public IQueryable<Periodo> GetPeriodos()
         {
-            return db.periodos;
+            return db.Periodos;
         }
 
         // GET: api/Periodos/5
         [ResponseType(typeof(Periodo))]
         public async Task<IHttpActionResult> GetPeriodo(int id)
         {
-            Periodo periodo = await db.periodos.FindAsync(id);
+            Periodo periodo = await db.Periodos.FindAsync(id);
             if (periodo == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.periodos.Add(periodo);
+            db.Periodos.Add(periodo);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = periodo.Id }, periodo);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(Periodo))]
         public async Task<IHttpActionResult> DeletePeriodo(int id)
         {
-            Periodo periodo = await db.periodos.FindAsync(id);
+            Periodo periodo = await db.Periodos.FindAsync(id);
             if (periodo == null)
             {
                 return NotFound();
             }
 
-            db.periodos.Remove(periodo);
+            db.Periodos.Remove(periodo);
             await db.SaveChangesAsync();
 
             return Ok(periodo);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool PeriodoExists(int id)
         {
-            return db.periodos.Count(e => e.Id == id) > 0;
+            return db.Periodos.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -20,31 +20,5 @@ namespace PadawanProject.Models
         public bool Cidade { get; set; }
         public bool Noturno { get; set; }
         public bool Carona { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Usuario> UsuarioFK { get; set; }
-
-        private ICollection<Usuario> usuCriacaoFK;
-
-        public virtual ICollection<Usuario> GetUsuCriacaoFK()
-        {
-            return usuCriacaoFK;
-        }
-
-        public virtual void SetUsuCriacaoFK(ICollection<Usuario> value)
-        {
-            usuCriacaoFK = value;
-        }
-
-        private ICollection<Usuario> usuAlteracaFK;
-
-        public virtual ICollection<Usuario> GetUsuAlteracaFK()
-        {
-            return usuAlteracaFK;
-        }
-
-        public virtual void SetUsuAlteracaFK(ICollection<Usuario> value)
-        {
-            usuAlteracaFK = value;
-        }
     }
 }

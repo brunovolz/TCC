@@ -13,8 +13,6 @@ namespace PadawanProject.Models
         public int Id { get; set; }
         public DateTime InicioLocacao { get; set; }
         public DateTime FimLocacao { get; set; }
-        public float Valor { get; set; } = 0;
-        [JsonIgnore]
-        public virtual ICollection<Periodo> PeriodoFK { get; set; }
+        public decimal Valor { get; set; } = 0;
     }
 }

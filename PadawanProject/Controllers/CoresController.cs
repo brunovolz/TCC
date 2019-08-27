@@ -18,16 +18,16 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Cores
-        public IQueryable<Cor> Getcores()
+        public IQueryable<Cor> GetCores()
         {
-            return db.cores;
+            return db.Cores;
         }
 
         // GET: api/Cores/5
         [ResponseType(typeof(Cor))]
         public async Task<IHttpActionResult> GetCor(int id)
         {
-            Cor cor = await db.cores.FindAsync(id);
+            Cor cor = await db.Cores.FindAsync(id);
             if (cor == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace PadawanProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.cores.Add(cor);
+            db.Cores.Add(cor);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = cor.Id }, cor);
@@ -90,13 +90,13 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(Cor))]
         public async Task<IHttpActionResult> DeleteCor(int id)
         {
-            Cor cor = await db.cores.FindAsync(id);
+            Cor cor = await db.Cores.FindAsync(id);
             if (cor == null)
             {
                 return NotFound();
             }
 
-            db.cores.Remove(cor);
+            db.Cores.Remove(cor);
             await db.SaveChangesAsync();
 
             return Ok(cor);
@@ -113,7 +113,7 @@ namespace PadawanProject.Controllers
 
         private bool CorExists(int id)
         {
-            return db.cores.Count(e => e.Id == id) > 0;
+            return db.Cores.Count(e => e.Id == id) > 0;
         }
     }
 }
