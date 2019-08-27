@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Modelos
         public IQueryable<Modelo> GetModelos()
         {
-            return db.Modelos.Where(x => x.Ativo == true); ;
+            return db.Modelos.Where(x => x.Ativo == true); 
         }
 
         // GET: api/Modelos/5

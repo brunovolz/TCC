@@ -7,13 +7,13 @@ namespace PadawanProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DataSetMigration : IMigrationMetadata
+    public sealed partial class DBUpdate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DataSetMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DBUpdate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908271742416_DataSetMigration"; }
+            get { return "201908271856481_DBUpdate"; }
         }
         
         string IMigrationMetadata.Source

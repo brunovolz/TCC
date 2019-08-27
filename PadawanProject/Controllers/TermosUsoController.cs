@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/TermosUso
         public IQueryable<TermoUso> GetTermosUso()
         {
-            return db.TermosUso.Where(x => x.Ativo == true); ;
+            return db.TermosUso.Where(x => x.Ativo == true); 
         }
 
         // GET: api/TermosUso/5

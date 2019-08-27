@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/TipoVeiculos
         public IQueryable<TipoVeiculo> GetTipoVeiculos()
         {
-            return db.TipoVeiculos.Where(x => x.Ativo == true); ;
+            return db.TipoVeiculos.Where(x => x.Ativo == true); 
         }
 
         // GET: api/TipoVeiculos/5

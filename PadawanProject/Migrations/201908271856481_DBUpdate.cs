@@ -3,7 +3,7 @@ namespace PadawanProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DataSetMigration : DbMigration
+    public partial class DBUpdate : DbMigration
     {
         public override void Up()
         {
@@ -27,6 +27,11 @@ namespace PadawanProject.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Descricao = c.String(),
+                        Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(nullable: false),
+                        UsuarioAlteracao = c.Int(nullable: false),
+                        DataCriacao = c.DateTime(nullable: false),
+                        DataAlteracao = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -36,6 +41,11 @@ namespace PadawanProject.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         StatusLocacao = c.Int(nullable: false),
+                        Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(nullable: false),
+                        UsuarioAlteracao = c.Int(nullable: false),
+                        DataCriacao = c.DateTime(nullable: false),
+                        DataAlteracao = c.DateTime(nullable: false),
                         Cliente_Id = c.Int(),
                         Cor_Id = c.Int(),
                         Marca_Id = c.Int(),
@@ -69,6 +79,11 @@ namespace PadawanProject.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Descricao = c.String(),
+                        Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(nullable: false),
+                        UsuarioAlteracao = c.Int(nullable: false),
+                        DataCriacao = c.DateTime(nullable: false),
+                        DataAlteracao = c.DateTime(nullable: false),
                         TipoVeiculo_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -81,6 +96,11 @@ namespace PadawanProject.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Descricao = c.String(),
+                        Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(nullable: false),
+                        UsuarioAlteracao = c.Int(nullable: false),
+                        DataCriacao = c.DateTime(nullable: false),
+                        DataAlteracao = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -90,6 +110,11 @@ namespace PadawanProject.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Descricao = c.String(),
+                        Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(nullable: false),
+                        UsuarioAlteracao = c.Int(nullable: false),
+                        DataCriacao = c.DateTime(nullable: false),
+                        DataAlteracao = c.DateTime(nullable: false),
                         Marca_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -104,6 +129,11 @@ namespace PadawanProject.Migrations
                         InicioLocacao = c.DateTime(nullable: false),
                         FimLocacao = c.DateTime(nullable: false),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(nullable: false),
+                        UsuarioAlteracao = c.Int(nullable: false),
+                        DataCriacao = c.DateTime(nullable: false),
+                        DataAlteracao = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -114,6 +144,10 @@ namespace PadawanProject.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Descricao = c.String(),
                         Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(nullable: false),
+                        UsuarioAlteracao = c.Int(nullable: false),
+                        DataCriacao = c.DateTime(nullable: false),
+                        DataAlteracao = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

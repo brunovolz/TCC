@@ -14,5 +14,8 @@ namespace PadawanProject.Models
         public DateTime InicioLocacao { get; set; }
         public DateTime FimLocacao { get; set; }
         public decimal Valor { get; set; } = 0;
+        public int Quantidade { get; set; }
+        public virtual TipoVeiculo TipoVeiculo { get; set; }
+
     }
 }

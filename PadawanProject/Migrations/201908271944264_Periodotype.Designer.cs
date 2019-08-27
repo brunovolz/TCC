@@ -7,13 +7,13 @@ namespace PadawanProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UserAtivo : IMigrationMetadata
+    public sealed partial class Periodotype : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserAtivo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Periodotype));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908271832364_UserAtivo"; }
+            get { return "201908271944264_Periodotype"; }
         }
         
         string IMigrationMetadata.Source

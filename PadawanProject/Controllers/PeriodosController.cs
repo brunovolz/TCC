@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Periodos
         public IQueryable<Periodo> GetPeriodos()
         {
-            return db.Periodos.Where(x => x.Ativo == true); ;
+            return db.Periodos.Where(x => x.Ativo == true); 
         }
 
         // GET: api/Periodos/5
