@@ -8,6 +8,7 @@ namespace PadawanTCC.Models
     public class Usuario : UserControls
     {
         public int Id { get; set; }
+        public int Codigo { get; set; }
         public string Nome { get; set; }
         public int Matricula { get; set; }
         public string Email { get; set; }
