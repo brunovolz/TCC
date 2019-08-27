@@ -7,7 +7,7 @@ using System.Web;
 
 namespace PadawanProject.Models
 {
-    public class Marca
+    public class Marca : UserControls
     {
         [Key]
         public int Id{ get; set; }

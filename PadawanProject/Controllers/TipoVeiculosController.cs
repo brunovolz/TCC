@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/TipoVeiculos
         public IQueryable<TipoVeiculo> GetTipoVeiculos()
         {
-            return db.TipoVeiculos;
+            return db.TipoVeiculos.Where(x => x.Ativo == true); ;
         }
 
         // GET: api/TipoVeiculos/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.TipoVeiculos.Remove(tipoVeiculo);
-            await db.SaveChangesAsync();
+            tipoVeiculo.Ativo = false;
+            db.SaveChanges();
 
             return Ok(tipoVeiculo);
         }

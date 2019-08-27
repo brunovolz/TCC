@@ -8,7 +8,7 @@ using System.Web;
 
 namespace PadawanProject.Models
 {
-    public class Modelo
+    public class Modelo : UserControls
     {
         [Key]
         public int Id { get; set; }

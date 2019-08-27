@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Cores
         public IQueryable<Cor> GetCores()
         {
-            return db.Cores;
+            return db.Cores.Where(x => x.Ativo == true);
         }
 
         // GET: api/Cores/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.Cores.Remove(cor);
-            await db.SaveChangesAsync();
+            cor.Ativo = false;
+            db.SaveChanges();
 
             return Ok(cor);
         }

@@ -9,7 +9,7 @@ using System.Web;
 
 namespace PadawanProject.Models
 {
-    public class Locacao
+    public class Locacao : UserControls
     {
         [Key]
         public int Id { get; set; }

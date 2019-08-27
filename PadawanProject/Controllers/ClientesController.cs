@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Clientes
         public IQueryable<Cliente> GetClientes()
         {
-            return db.Clientes;
+            return db.Clientes.Where(x => x.Ativo == true);
         }
 
         // GET: api/Clientes/5
@@ -96,8 +96,9 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.Clientes.Remove(cliente);
-            await db.SaveChangesAsync();
+            cliente.Ativo = false;
+
+            db.SaveChanges();
 
             return Ok(cliente);
         }

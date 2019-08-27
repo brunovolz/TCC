@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Modelos
         public IQueryable<Modelo> GetModelos()
         {
-            return db.Modelos;
+            return db.Modelos.Where(x => x.Ativo == true); ;
         }
 
         // GET: api/Modelos/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.Modelos.Remove(modelo);
-            await db.SaveChangesAsync();
+            modelo.Ativo = false;
+            db.SaveChanges();
 
             return Ok(modelo);
         }

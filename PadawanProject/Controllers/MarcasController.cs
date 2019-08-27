@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Marcas
         public IQueryable<Marca> GetMarcas()
         {
-            return db.Marcas;
+            return db.Marcas.Where(x => x.Ativo == true);
         }
 
         // GET: api/Marcas/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.Marcas.Remove(marca);
-            await db.SaveChangesAsync();
+            marca.Ativo = false;
+            db.SaveChanges();
 
             return Ok(marca);
         }

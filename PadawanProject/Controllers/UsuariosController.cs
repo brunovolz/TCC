@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Usuarios
         public IQueryable<Usuario> GetUsuarios()
         {
-            return db.Usuarios;
+            return db.Usuarios.Where(x => x.Ativo == true);
         }
 
         // GET: api/Usuarios/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.Usuarios.Remove(usuario);
-            await db.SaveChangesAsync();
+            usuario.Ativo = false;
+            db.SaveChanges();
 
             return Ok(usuario);
         }

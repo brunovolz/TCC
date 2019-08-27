@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/TermosUso
         public IQueryable<TermoUso> GetTermosUso()
         {
-            return db.TermosUso;
+            return db.TermosUso.Where(x => x.Ativo == true); ;
         }
 
         // GET: api/TermosUso/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.TermosUso.Remove(termoUso);
-            await db.SaveChangesAsync();
+            termoUso.Ativo = false;
+            db.SaveChanges();
 
             return Ok(termoUso);
         }

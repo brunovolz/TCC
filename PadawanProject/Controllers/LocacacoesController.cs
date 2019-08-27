@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Locacacoes
         public IQueryable<Locacao> GetLocacoes()
         {
-            return db.Locacoes;
+            return db.Locacoes.Where(x => x.Ativo == true); 
         }
 
         // GET: api/Locacacoes/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.Locacoes.Remove(locacao);
-            await db.SaveChangesAsync();
+            locacao.Ativo = false;
+            db.SaveChanges();
 
             return Ok(locacao);
         }

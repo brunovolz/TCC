@@ -20,7 +20,7 @@ namespace PadawanProject.Controllers
         // GET: api/Periodos
         public IQueryable<Periodo> GetPeriodos()
         {
-            return db.Periodos;
+            return db.Periodos.Where(x => x.Ativo == true); ;
         }
 
         // GET: api/Periodos/5
@@ -96,8 +96,8 @@ namespace PadawanProject.Controllers
                 return NotFound();
             }
 
-            db.Periodos.Remove(periodo);
-            await db.SaveChangesAsync();
+            periodo.Ativo = false;
+            db.SaveChanges();
 
             return Ok(periodo);
         }

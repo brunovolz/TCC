@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201908271742416_DataSetMigration.Designer.cs">
       <DependentUpon>201908271742416_DataSetMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908271832364_UserAtivo.cs" />
+    <Compile Include="Migrations\201908271832364_UserAtivo.Designer.cs">
+      <DependentUpon>201908271832364_UserAtivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Configuration.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -279,6 +283,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908271742416_DataSetMigration.resx">
       <DependentUpon>201908271742416_DataSetMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908271832364_UserAtivo.resx">
+      <DependentUpon>201908271832364_UserAtivo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

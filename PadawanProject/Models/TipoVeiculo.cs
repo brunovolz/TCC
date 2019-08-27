@@ -7,7 +7,7 @@ using System.Web;
 
 namespace PadawanProject.Models
 {
-    public class TipoVeiculo
+    public class TipoVeiculo : UserControls
     {
         [Key]
         public int Id { get; set; }
