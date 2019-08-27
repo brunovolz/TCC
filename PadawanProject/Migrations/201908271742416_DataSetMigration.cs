@@ -3,7 +3,7 @@ namespace PadawanProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ClientData : DbMigration
+    public partial class DataSetMigration : DbMigration
     {
         public override void Up()
         {

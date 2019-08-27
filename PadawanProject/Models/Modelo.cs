@@ -14,6 +14,5 @@ namespace PadawanProject.Models
         public int Id { get; set; }
         public string Descricao { get; set; }
         public virtual Marca Marca { get; set; }
-
     }
 }
