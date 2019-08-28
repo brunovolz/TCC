@@ -13,11 +13,11 @@ namespace PadawanProject.Models
         [Key]
         public int Id { get; set; }
         [Display(Name = "Data de Inicio do Periodo de Locação")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
         public DateTime InicioLocacao { get; set; }
         [Display(Name = "Data Final do Periodo de Locação")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
         public DateTime FimLocacao { get; set; }
         public decimal Valor { get; set; } = 0;

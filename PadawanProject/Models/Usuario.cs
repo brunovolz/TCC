@@ -15,6 +15,7 @@ namespace PadawanProject.Models
         public string Nome { get; set; }
         public string Matricula { get; set; }
         public string Email { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DataNasc { get; set; }
         public bool Pcd { get; set; }
         public bool Cidade { get; set; }

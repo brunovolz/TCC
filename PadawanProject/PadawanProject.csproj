@@ -178,29 +178,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908271856481_DBUpdate.cs" />
-    <Compile Include="Migrations\201908271856481_DBUpdate.Designer.cs">
-      <DependentUpon>201908271856481_DBUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908271944264_Periodotype.cs" />
-    <Compile Include="Migrations\201908271944264_Periodotype.Designer.cs">
-      <DependentUpon>201908271944264_Periodotype.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908281222518_TVPlaca.cs" />
-    <Compile Include="Migrations\201908281222518_TVPlaca.Designer.cs">
-      <DependentUpon>201908281222518_TVPlaca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908281722210_ForeingPeriodo.cs" />
-    <Compile Include="Migrations\201908281722210_ForeingPeriodo.Designer.cs">
-      <DependentUpon>201908281722210_ForeingPeriodo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908281745369_primary.cs" />
-    <Compile Include="Migrations\201908281745369_primary.Designer.cs">
-      <DependentUpon>201908281745369_primary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908281851538_KeyDown.cs" />
-    <Compile Include="Migrations\201908281851538_KeyDown.Designer.cs">
-      <DependentUpon>201908281851538_KeyDown.cs</DependentUpon>
+    <Compile Include="Migrations\201908281922143_UpdateDB.cs" />
+    <Compile Include="Migrations\201908281922143_UpdateDB.Designer.cs">
+      <DependentUpon>201908281922143_UpdateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Marca.cs" />
@@ -302,23 +282,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908271856481_DBUpdate.resx">
-      <DependentUpon>201908271856481_DBUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908271944264_Periodotype.resx">
-      <DependentUpon>201908271944264_Periodotype.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908281222518_TVPlaca.resx">
-      <DependentUpon>201908281222518_TVPlaca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908281722210_ForeingPeriodo.resx">
-      <DependentUpon>201908281722210_ForeingPeriodo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908281745369_primary.resx">
-      <DependentUpon>201908281745369_primary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908281851538_KeyDown.resx">
-      <DependentUpon>201908281851538_KeyDown.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908281922143_UpdateDB.resx">
+      <DependentUpon>201908281922143_UpdateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

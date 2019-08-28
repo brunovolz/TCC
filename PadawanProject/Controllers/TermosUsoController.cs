@@ -75,10 +75,9 @@ namespace PadawanProject.Controllers
         [ResponseType(typeof(TermoUso))]
         public async Task<IHttpActionResult> PostTermoUso(TermoUso termoUso)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            var termo = db.TermosUso.FirstOrDefault(x => x.Ativo == true);
+            if (termo != null)
+                termo.Ativo = false;
 
             db.TermosUso.Add(termoUso);
             await db.SaveChangesAsync();
