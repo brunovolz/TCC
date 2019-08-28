@@ -13,8 +13,7 @@ namespace PadawanProject.Models
     {
         [Key]
         public int Id { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaTipoVeiculo)]
         public string Descricao { get; set; }
-        [ValidaLocacao(LocacaoEnum.ValidarTVeiculo)]
-
     }
 }
