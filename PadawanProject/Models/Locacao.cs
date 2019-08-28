@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PadawanProject.Enums;
+using PadawanProject.Validacoes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,9 +17,11 @@ namespace PadawanProject.Models
         public virtual Cliente Cliente { get; set; }
         public virtual TipoVeiculo TipoVeiculo { get; set; }
         public string Placa { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaMarca)]
         public virtual Marca Marca { get; set; }
         public virtual Modelo Modelo { get; set; }
         public virtual Cor Cor { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaPlaca)]
         public virtual Periodo Periodo { get; set; }
         public virtual Usuario Usuario{ get; set; }
         public virtual TermoUso Termo { get; set; }

@@ -10,6 +10,7 @@ namespace PadawanProject.Enums
         ValidaTipoVeiculo,
         ValidaMarca,
         ValidaModelo,
+        ValidaPlaca,
         ValidaCor,
         ValidaPeriodo,
         ValidaUsuario,

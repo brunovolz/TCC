@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201908271944264_Periodotype.Designer.cs">
       <DependentUpon>201908271944264_Periodotype.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908281222518_TVPlaca.cs" />
+    <Compile Include="Migrations\201908281222518_TVPlaca.Designer.cs">
+      <DependentUpon>201908281222518_TVPlaca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -290,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908271944264_Periodotype.resx">
       <DependentUpon>201908271944264_Periodotype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908281222518_TVPlaca.resx">
+      <DependentUpon>201908281222518_TVPlaca.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

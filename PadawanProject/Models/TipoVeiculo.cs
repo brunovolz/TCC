@@ -12,8 +12,8 @@ namespace PadawanProject.Models
     public class TipoVeiculo : UserControls
     {
         [Key]
-        public int Id { get; set; }
         [ValidaLocacao(LocacaoEnum.ValidaTipoVeiculo)]
+        public int Id { get; set; }
         public string Descricao { get; set; }
     }
 }
