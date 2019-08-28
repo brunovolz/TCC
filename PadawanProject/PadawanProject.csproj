@@ -171,6 +171,8 @@
     <Compile Include="Controllers\TermosUsoController.cs" />
     <Compile Include="Controllers\TipoVeiculosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Enums\LocacaoEnum.cs" />
     <Compile Include="Enums\StatusLocacao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +199,7 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validacoes\CustomValidation.cs" />
+    <Compile Include="Validacoes\ValidaLocacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

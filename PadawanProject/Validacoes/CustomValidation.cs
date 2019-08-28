@@ -19,9 +19,9 @@ namespace PadawanProject.Validacoes
         {
             tipoCampo = pTipoCampo;
         }
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-        {
-            switch(tipoCampo)
-        }      
+        //protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        //{
+        //  switch(tipoCampo)
+        //}      
     }
 }

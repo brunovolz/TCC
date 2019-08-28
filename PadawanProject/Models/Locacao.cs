@@ -15,6 +15,7 @@ namespace PadawanProject.Models
         public int Id { get; set; }
         public virtual Cliente Cliente { get; set; }
         public virtual TipoVeiculo TipoVeiculo { get; set; }
+        public string Placa { get; set; }
         public virtual Marca Marca { get; set; }
         public virtual Modelo Modelo { get; set; }
         public virtual Cor Cor { get; set; }
