@@ -67,7 +67,7 @@ namespace PadawanProject.Validacoes
             if (value == null)
                 return new ValidationResult($"O campo {displayField} é obrigatório!");
 
-            var tipo = db.Marcas.FirstOrDefault(x => x.Descricao == value.ToString()); //verificar se já existe no banco
+            var tipo = db.Marcas.FirstOrDefault(x => x.Id == (int)value); //verificar se já existe no banco
             if (tipo != null)
                 return new ValidationResult($"O campo {displayField} já existe.");
 
@@ -81,7 +81,7 @@ namespace PadawanProject.Validacoes
             if (value == null)
                 return new ValidationResult($"O campo {displayField} é obrigatório!");
 
-            var tipo = db.Modelos.FirstOrDefault(x => x.Descricao == value.ToString()); //verificar se já existe no banco
+            var tipo = db.Modelos.FirstOrDefault(x => x.Id == (int)value); //verificar se já existe no banco
             if (tipo != null)
                 return new ValidationResult($"O campo {displayField} já existe.");
 

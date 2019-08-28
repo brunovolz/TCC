@@ -50,7 +50,7 @@ namespace PadawanProject.Controllers
                 return BadRequest();
             }
 
-            db.Entry(periodo).State = EntityState.Modified;
+            db.Entry(periodo.TipoVeiculo).State = EntityState.Modified;
 
             try
             {
@@ -83,7 +83,7 @@ namespace PadawanProject.Controllers
             db.Periodos.Add(periodo);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = periodo.Id }, periodo);
+            return CreatedAtRoute("DefaultApi", new { id = periodo.TipoVeiculo}, periodo);
         }
 
         // DELETE: api/Periodos/5

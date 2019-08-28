@@ -13,9 +13,13 @@ namespace PadawanProject.Models
     public class Modelo : UserControls
     {
         [Key]
+
         public int Id { get; set; }
-        [ValidaLocacao(LocacaoEnum.ValidaModelo)]
         public string Descricao { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaModelo)]
+        public int TipoModeloMarcaFK { get; set; }
+
+        [ForeignKey("TipoModeloMarcaFK")]
         public virtual Marca Marca { get; set; }
     }
 }

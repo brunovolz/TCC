@@ -4,6 +4,7 @@ using PadawanProject.Validacoes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,8 +13,8 @@ namespace PadawanProject.Models
     public class TipoVeiculo : UserControls
     {
         [Key]
-        [ValidaLocacao(LocacaoEnum.ValidaTipoVeiculo)]
         public int Id { get; set; }
+        //[ValidaLocacao(LocacaoEnum.ValidaTipoVeiculo)]
         public string Descricao { get; set; }
     }
 }
