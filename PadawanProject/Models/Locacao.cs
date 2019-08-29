@@ -15,7 +15,7 @@ namespace PadawanProject.Models
         [Key]
         public int Id { get; set; }
         public virtual TipoVeiculo TipoVeiculo { get; set; }
-        [ValidaLocacao(LocacaoEnum.ValidaPlaca)]
+        //[ValidaLocacao(LocacaoEnum.ValidaPlaca)]
         public string Placa { get; set; }
         //[ValidaLocacao(LocacaoEnum.ValidaMarca)]
         public virtual Marca Marca { get; set; }

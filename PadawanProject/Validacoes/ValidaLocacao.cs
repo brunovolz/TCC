@@ -111,7 +111,7 @@ namespace PadawanProject.Validacoes
             if (value == null)
                 return new ValidationResult($"A placa é obrigatória!");
 
-            string pattern = @"^[A-Z]{3}[0-9]{1}[A-Z]{1}[0-9]{2}$|^[A-Z]{3}[0-9]{4}$";
+            string pattern = @"^[A-Z]{3}[0-9]{1}[A-Z]{1}[0-9]{2}$||^[A-Z]{3}[0-9]{4}$";
             bool result = Regex.IsMatch(value.ToString(), pattern);
 
             if (result)

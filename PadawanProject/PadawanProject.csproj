@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201908291225098_LocoesRemove.Designer.cs">
       <DependentUpon>201908291225098_LocoesRemove.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908291303536_UpdateDB1.cs" />
+    <Compile Include="Migrations\201908291303536_UpdateDB1.Designer.cs">
+      <DependentUpon>201908291303536_UpdateDB1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -291,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908291225098_LocoesRemove.resx">
       <DependentUpon>201908291225098_LocoesRemove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908291303536_UpdateDB1.resx">
+      <DependentUpon>201908291303536_UpdateDB1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
