@@ -15,11 +15,11 @@ namespace PadawanProject.Models
         [Key]
         public int Id { get; set; }
         public int TipoVeiculoId { get; set; }
-        //[ValidaLocacao(LocacaoEnum.ValidaPlaca)]
+        [ValidaLocacao(LocacaoEnum.ValidaPlaca)]
         public string Placa { get; set; }
-        //[ValidaLocacao(LocacaoEnum.ValidaMarca)]
+        [ValidaLocacao(LocacaoEnum.ValidaMarca)]
         public int? MarcaId { get; set; }
-        public int? ModeloId { get; set; }
+        //public int? ModeloId { get; set; }
         public int? CorId { get; set; }
         public int PeriodoId { get; set; }
         public int UsuarioId { get; set; }
@@ -32,11 +32,11 @@ namespace PadawanProject.Models
         public virtual Cor Cor { get; set; }
         [ForeignKey("UsuarioId")]
         public virtual Usuario Usuario { get; set; }
-        [ForeignKey("ModeloId")]
-        public virtual Modelo Modelo { get; set; }
+        //[ForeignKey("ModeloId")]
+        //public virtual Modelo Modelo { get; set; }
         [ForeignKey("MarcaId")]
         public virtual Marca Marca { get; set; }
-        [ForeignKey("TipoVeiculoId")]
-        public virtual TipoVeiculo TipoVeiculo { get; set; }
+        //[ForeignKey("TipoVeiculoId")]
+        //public virtual TipoVeiculo TipoVeiculo { get; set; }
     }
 }

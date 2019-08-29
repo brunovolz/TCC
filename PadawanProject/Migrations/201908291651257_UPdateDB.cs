@@ -3,7 +3,7 @@ namespace PadawanProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DBUpdate : DbMigration
+    public partial class UPdateDB : DbMigration
     {
         public override void Up()
         {
@@ -43,7 +43,6 @@ namespace PadawanProject.Migrations
                         TipoVeiculoId = c.Int(nullable: false),
                         Placa = c.String(),
                         MarcaId = c.Int(),
-                        ModeloId = c.Int(),
                         CorId = c.Int(),
                         PeriodoId = c.Int(nullable: false),
                         UsuarioId = c.Int(nullable: false),
@@ -57,14 +56,10 @@ namespace PadawanProject.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cor", t => t.CorId)
                 .ForeignKey("dbo.Marca", t => t.MarcaId)
-                .ForeignKey("dbo.Modelo", t => t.ModeloId)
                 .ForeignKey("dbo.Periodo", t => t.PeriodoId, cascadeDelete: true)
                 .ForeignKey("dbo.TermoUso", t => t.TermoId, cascadeDelete: true)
-                .ForeignKey("dbo.TipoVeiculo", t => t.TipoVeiculoId, cascadeDelete: true)
                 .ForeignKey("dbo.Usuario", t => t.UsuarioId, cascadeDelete: true)
-                .Index(t => t.TipoVeiculoId)
                 .Index(t => t.MarcaId)
-                .Index(t => t.ModeloId)
                 .Index(t => t.CorId)
                 .Index(t => t.PeriodoId)
                 .Index(t => t.UsuarioId)
@@ -102,12 +97,15 @@ namespace PadawanProject.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Modelo",
+                "dbo.Periodo",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Descricao = c.String(),
-                        TipoModeloMarcaFK = c.Int(nullable: false),
+                        InicioLocacao = c.DateTime(nullable: false),
+                        FimLocacao = c.DateTime(nullable: false),
+                        Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Quantidade = c.Int(nullable: false),
+                        TipoVeiculoPeriodoFK = c.Int(nullable: false),
                         Ativo = c.Boolean(nullable: false),
                         UsuarioCriacao = c.Int(),
                         UsuarioAlteracao = c.Int(),
@@ -115,28 +113,8 @@ namespace PadawanProject.Migrations
                         DataAlteracao = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Marca", t => t.TipoModeloMarcaFK, cascadeDelete: true)
-                .Index(t => t.TipoModeloMarcaFK);
-
-            CreateTable(
-                "dbo.Periodo",
-                c => new
-                {
-                    Id = c.Int(nullable: false, identity: true),
-                    InicioLocacao = c.DateTime(nullable: false),
-                    FimLocacao = c.DateTime(nullable: false),
-                    Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    Quantidade = c.Int(nullable: false),
-                    //TipoVeiculoPeriodoFK = c.Int(nullable: false),
-                    Ativo = c.Boolean(nullable: false),
-                    UsuarioCriacao = c.Int(),
-                    UsuarioAlteracao = c.Int(),
-                    DataCriacao = c.DateTime(),
-                    DataAlteracao = c.DateTime(),
-                })
-                .PrimaryKey(t => t.Id);
-                //.ForeignKey("dbo.TipoVeiculo", t => t.TipoVeiculoPeriodoFK, cascadeDelete: true)
-                //.Index(t => t.TipoVeiculoPeriodoFK);
+                .ForeignKey("dbo.TipoVeiculo", t => t.TipoVeiculoPeriodoFK, cascadeDelete: true)
+                .Index(t => t.TipoVeiculoPeriodoFK);
             
             CreateTable(
                 "dbo.TermoUso",
@@ -173,34 +151,47 @@ namespace PadawanProject.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.Modelo",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Descricao = c.String(),
+                        TipoModeloMarcaFK = c.Int(nullable: false),
+                        Ativo = c.Boolean(nullable: false),
+                        UsuarioCriacao = c.Int(),
+                        UsuarioAlteracao = c.Int(),
+                        DataCriacao = c.DateTime(),
+                        DataAlteracao = c.DateTime(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Marca", t => t.TipoModeloMarcaFK, cascadeDelete: true)
+                .Index(t => t.TipoModeloMarcaFK);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Modelo", "TipoModeloMarcaFK", "dbo.Marca");
             DropForeignKey("dbo.Locacao", "UsuarioId", "dbo.Usuario");
-            DropForeignKey("dbo.Locacao", "TipoVeiculoId", "dbo.TipoVeiculo");
             DropForeignKey("dbo.Locacao", "TermoId", "dbo.TermoUso");
             DropForeignKey("dbo.Locacao", "PeriodoId", "dbo.Periodo");
             DropForeignKey("dbo.Periodo", "TipoVeiculoPeriodoFK", "dbo.TipoVeiculo");
-            DropForeignKey("dbo.Locacao", "ModeloId", "dbo.Modelo");
-            DropForeignKey("dbo.Modelo", "TipoModeloMarcaFK", "dbo.Marca");
             DropForeignKey("dbo.Locacao", "MarcaId", "dbo.Marca");
             DropForeignKey("dbo.Marca", "TipoVeiculoMarcaFK", "dbo.TipoVeiculo");
             DropForeignKey("dbo.Locacao", "CorId", "dbo.Cor");
-            DropIndex("dbo.Periodo", new[] { "TipoVeiculoPeriodoFK" });
             DropIndex("dbo.Modelo", new[] { "TipoModeloMarcaFK" });
+            DropIndex("dbo.Periodo", new[] { "TipoVeiculoPeriodoFK" });
             DropIndex("dbo.Marca", new[] { "TipoVeiculoMarcaFK" });
             DropIndex("dbo.Locacao", new[] { "TermoId" });
             DropIndex("dbo.Locacao", new[] { "UsuarioId" });
             DropIndex("dbo.Locacao", new[] { "PeriodoId" });
             DropIndex("dbo.Locacao", new[] { "CorId" });
-            DropIndex("dbo.Locacao", new[] { "ModeloId" });
             DropIndex("dbo.Locacao", new[] { "MarcaId" });
-            DropIndex("dbo.Locacao", new[] { "TipoVeiculoId" });
+            DropTable("dbo.Modelo");
             DropTable("dbo.Usuario");
             DropTable("dbo.TermoUso");
             DropTable("dbo.Periodo");
-            DropTable("dbo.Modelo");
             DropTable("dbo.TipoVeiculo");
             DropTable("dbo.Marca");
             DropTable("dbo.Locacao");

@@ -13,7 +13,6 @@ namespace PadawanProject.Models
     public class Modelo : UserControls
     {
         [Key]
-
         public int Id { get; set; }
         public string Descricao { get; set; }
         [ValidaLocacao(LocacaoEnum.ValidaModelo)]

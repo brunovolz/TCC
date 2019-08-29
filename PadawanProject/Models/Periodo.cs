@@ -12,7 +12,9 @@ namespace PadawanProject.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime InicioLocacao { get; set; } 
+        [JsonConverter(typeof(CustomDateTimeConverter))]
+        public DateTime InicioLocacao { get; set; }
+        [JsonConverter(typeof(CustomDateTimeConverter))]
         public DateTime FimLocacao { get; set; } 
         public decimal Valor { get; set; } = 0;
         public int Quantidade { get; set; }
