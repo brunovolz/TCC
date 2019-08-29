@@ -172,7 +172,6 @@
     <Compile Include="Controllers\TipoVeiculosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Controllers\Veiculo.cs" />
     <Compile Include="Enums\LocacaoEnum.cs" />
     <Compile Include="Enums\StatusLocacao.cs" />
     <Compile Include="Global.asax.cs">

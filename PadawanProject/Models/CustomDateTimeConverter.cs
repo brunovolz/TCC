@@ -10,7 +10,7 @@ namespace PadawanProject.Models
     {
         public CustomDateTimeConverter()
         {
-            base.DateTimeFormat = "dd/MM/yyyy";
+            base.DateTimeFormat = "dd/MM/yyyy HH:mm:ss";
         }
     }
 }
