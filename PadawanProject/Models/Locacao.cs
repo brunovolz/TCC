@@ -24,6 +24,9 @@ namespace PadawanProject.Models
         public int PeriodoId { get; set; }
         public int UsuarioId { get; set; }
         public int TermoId { get; set; }
+        public int? StatusLocacaoFK { get; set; }
+        [ForeignKey("StatusLocacaoFK")]
+        public virtual StatusLocacao StatusLocacao { get; set; }
         [ForeignKey("TermoId")]
         public virtual TermoUso Termo { get; set; }
         [ForeignKey("PeriodoId")]

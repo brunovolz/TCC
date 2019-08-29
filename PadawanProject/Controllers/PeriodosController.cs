@@ -18,6 +18,19 @@ namespace PadawanProject.Controllers
         private ContextDB db = new ContextDB();
 
         // GET: api/Periodos
+        public List<string> GetPeriodoPorTipoVeiculo(int tipoVeiculo)
+        {
+            var listaPeriodos = db.Periodos.Where(x => (x.TipoVeiculoPeriodoFK == tipoVeiculo)
+            && x.FimLocacao >= DateTime.Now
+            && x.Ativo == true);
+
+            List<string> listaRetorno = new List<string>();
+
+            foreach (var item in listaPeriodos)
+                listaRetorno.Add($"De <{item.InicioLocacao.ToString("dd/MM/yyyy")}> até <{item.FimLocacao.ToString("dd/MM/yyyy")}>");
+
+            return listaRetorno;
+        }
         public IQueryable<Periodo> GetPeriodos()
         {
             return db.Periodos.Where(x => x.Ativo == true); 

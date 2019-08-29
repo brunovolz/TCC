@@ -79,6 +79,7 @@ namespace PadawanProject.Controllers
             {
                 return BadRequest(ModelState);
             }
+            locacao.StatusLocacaoFK = 2;
 
             db.Locacoes.Add(locacao);
             await db.SaveChangesAsync();

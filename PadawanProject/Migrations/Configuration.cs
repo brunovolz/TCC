@@ -14,67 +14,72 @@ namespace PadawanProject.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
+        public void Teste(PadawanProject.Models.ContextDB context)
+        {
+            Seed(context);
+        }
         protected override void Seed(PadawanProject.Models.ContextDB context)
         {
             var listTipo = new List<TipoVeiculo>() {
 
-            new TipoVeiculo() { Descricao = "Automóvel" },
-            new TipoVeiculo() { Descricao = "Moto" },
-            new TipoVeiculo() { Descricao = "Bicicleta" },
-            new TipoVeiculo() { Descricao = "Patinete" },
-            };
+             new TipoVeiculo() { Descricao = "Automóvel" },
+             new TipoVeiculo() { Descricao = "Moto" },
+             new TipoVeiculo() { Descricao = "Bicicleta" },
+             new TipoVeiculo() { Descricao = "Patinete" },
+             };
 
             listTipo.ForEach(s => context.TipoVeiculos.AddOrUpdate(p => p.Descricao, s));
             context.SaveChanges();
 
             var listCor = new List<Cor>()
-            {
-                new Cor() { Descricao = "Branco" },
-                new Cor() { Descricao = "Preto" },
-                new Cor() { Descricao = "Prata" },
-                new Cor() { Descricao = "Cinza" },
-                new Cor() { Descricao = "Vermelho" },
-                new Cor() { Descricao = "Marrom / Bege" },
-                new Cor() { Descricao = "Azul" },
-                new Cor() { Descricao = "Verde" },
-                new Cor() { Descricao = "Amarelo / Dourado" },
-                new Cor() { Descricao = "Outras" },
-            };
+             {
+                 new Cor() { Descricao = "Branco" },
+                 new Cor() { Descricao = "Preto" },
+                 new Cor() { Descricao = "Prata" },
+                 new Cor() { Descricao = "Cinza" },
+                 new Cor() { Descricao = "Vermelho" },
+                 new Cor() { Descricao = "Marrom / Bege" },
+                 new Cor() { Descricao = "Azul" },
+                 new Cor() { Descricao = "Verde" },
+                 new Cor() { Descricao = "Amarelo / Dourado" },
+                 new Cor() { Descricao = "Outras" },
+             };
 
 
             listCor.ForEach(s => context.Cores.AddOrUpdate(p => p.Descricao, s));
             context.SaveChanges();
 
             var Marcas = new List<Marca>()
-            {
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Audi"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "BMW"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Chevrolet"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Citroën"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Fiat"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Ford"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Honda"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Hyundai"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Jeep"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Kia"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Mitsubishi"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Nissan"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Peugeot"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Renault"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Toyota"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Volkswagen"},
+             {
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Audi"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "BMW"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Chevrolet"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Citroën"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Fiat"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Ford"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Honda"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Hyundai"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Jeep"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Kia"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Mitsubishi"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Nissan"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Peugeot"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Renault"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Toyota"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Automóvel"),Descricao = "Volkswagen"},
 
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Dafra"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Honda"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Suzuki"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Yamaha"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Kawasaki"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "BMW"},
-                new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Ducati"},
-            };
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Dafra"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Honda"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Suzuki"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Yamaha"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Kawasaki"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "BMW"},
+                 new Marca(){TipoVeiculo = listTipo.Single(x => x.Descricao == "Moto"),Descricao = "Ducati"},
+             };
 
-            Marcas.ForEach(s => context.Marcas.AddOrUpdate(p => p.Descricao, s));
+            Marcas.ForEach(s => context.Marcas.AddOrUpdate(p => new { p.Descricao, p.TipoVeiculoMarcaFK}, s));
             context.SaveChanges();
+
 
             var Modelos = new List<Modelo>()
             {
@@ -972,9 +977,13 @@ namespace PadawanProject.Migrations
                 new Modelo(){ Marca = Marcas.Single(x => x.Descricao =="Ducati" && x.TipoVeiculo.Descricao == "Moto"),Descricao ="Superbike 998"},
                 new Modelo(){ Marca = Marcas.Single(x => x.Descricao =="Ducati" && x.TipoVeiculo.Descricao == "Moto"),Descricao ="Superbike 999"},
             };
-
-            Modelos.ForEach(s => context.Modelos.AddOrUpdate(p => p.Descricao, s));
-            context.SaveChanges();
+            var count = 0;
+            foreach (var item in Modelos)
+            {
+                context.Modelos.Add(item);
+                context.SaveChanges();
+                count++;
+            }
         }
     }
 }

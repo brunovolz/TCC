@@ -174,12 +174,13 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Enums\LocacaoEnum.cs" />
     <Compile Include="Enums\StatusLocacao.cs" />
+    <Compile Include="Enums\UsuarioEnum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908291651257_UPdateDB.cs" />
-    <Compile Include="Migrations\201908291651257_UPdateDB.Designer.cs">
-      <DependentUpon>201908291651257_UPdateDB.cs</DependentUpon>
+    <Compile Include="Migrations\201908291750010_Create.cs" />
+    <Compile Include="Migrations\201908291750010_Create.Designer.cs">
+      <DependentUpon>201908291750010_Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomDateTimeConverter.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validacoes\ValidaLocacao.cs" />
+    <Compile Include="Validacoes\ValidaUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -281,8 +283,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908291651257_UPdateDB.resx">
-      <DependentUpon>201908291651257_UPdateDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908291750010_Create.resx">
+      <DependentUpon>201908291750010_Create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -35,15 +35,13 @@ namespace PadawanProject.Validacoes
                     case LocacaoEnum.ValidaPlaca:
                         { return ValidarPlaca(value, validationContext); }
                     case LocacaoEnum.ValidaCor:
-                        break;
+                        { return ValidarCor(value); }
                     case LocacaoEnum.ValidaPeriodo:
-                        break;
+                        { return ValidarPeriodo(value, validationContext.DisplayName); }
                     case LocacaoEnum.ValidaUsuario:
-                        break;
+                        { return ValidarUsuario(value, validationContext.DisplayName); }
                     case LocacaoEnum.ValidaTermo:
-                        break;
-                    case LocacaoEnum.ValidaStatusLocacao:
-                        break;
+                        { return ValidarTermo(value, validationContext.DisplayName); }
                 }
             }
             return new ValidationResult($"O campo {validationContext.DisplayName} é obrigatório");
@@ -55,7 +53,7 @@ namespace PadawanProject.Validacoes
 
             var tipo = db.TipoVeiculos.FirstOrDefault(x => x.Id == (int)value); //verificar se já existe no banco
             if (tipo == null)
-                return new ValidationResult($"Veículo inválido!");
+                return new ValidationResult("Veículo inválido!");
 
             if (tipo != null)
                 return ValidationResult.Success;
@@ -69,7 +67,7 @@ namespace PadawanProject.Validacoes
 
             var tipo = db.Marcas.FirstOrDefault(x => x.Id == (int)value); //verificar se já existe no banco
             if (tipo == null)
-                return new ValidationResult($"Esta marca não consta no banco de dados!");
+                return new ValidationResult("Esta marca não consta no banco de dados!");
 
             if (tipo != null)
                 return ValidationResult.Success;
@@ -83,7 +81,7 @@ namespace PadawanProject.Validacoes
 
             var tipo = db.Modelos.FirstOrDefault(x => x.Id == (int)value); //verificar se já existe no banco
             if (tipo == null)
-                return new ValidationResult($"Modelo inválido");
+                return new ValidationResult("Modelo inválido");
 
             if (tipo != null)
                 return ValidationResult.Success;
@@ -119,6 +117,60 @@ namespace PadawanProject.Validacoes
                 return new ValidationResult($"A placa '{value.ToString()}' não está no formato aceitável");
             }
             return new ValidationResult($"O campo {validationContext.DisplayName} deve ser informado");
+        }
+        private ValidationResult ValidarCor(object value)
+        {
+            if (value == null)
+                return new ValidationResult("O campo Cor é obrigatório!");
+            var corExistente = db.Cores.FirstOrDefault(x => x.Id == (int)value);
+            if (corExistente == null)
+                return new ValidationResult("Cor indisponível!");
+            if (corExistente != null)
+                return ValidationResult.Success;
+
+            return new ValidationResult($"O campo  é inválido.");
+        }
+        private ValidationResult ValidarPeriodo(object value, string displayField)
+        {
+            if (value == null)
+                return new ValidationResult($"O campo {displayField} é obrigatório!");
+
+            var tipo = db.Periodos.FirstOrDefault(x => x.Id == (int)value);
+            if (tipo == null)
+                return new ValidationResult($"{displayField} inválido");
+
+            if (tipo != null)
+                return ValidationResult.Success;
+
+            return new ValidationResult($"O campo {displayField} é inválido.");
+        }
+        private ValidationResult ValidarUsuario(object value, string displayField)
+        {
+            if (value == null)
+                return new ValidationResult($"O campo {displayField} é obrigatório!");
+
+            var usuario = db.Usuarios.FirstOrDefault(x => x.Id == (int)value);
+            if (usuario == null)
+                return new ValidationResult($"{displayField} inválido");
+
+            if (usuario != null)
+                return ValidationResult.Success;
+
+            return new ValidationResult($"O campo {displayField} é inválido.");
+        }
+        private ValidationResult ValidarTermo(object value, string displayField)
+        {
+            if (value == null)
+                return new ValidationResult($"O campo {displayField} é obrigatório!");
+
+            var termo = db.TermosUso.FirstOrDefault(x => x.Id == (int)value);
+            if (termo == null)
+                return new ValidationResult($"{displayField} inválido");
+
+            if (termo != null)
+                return ValidationResult.Success;
+
+            return new ValidationResult($"O campo {displayField} é inválido.");
         }
     }
 }

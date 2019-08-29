@@ -15,9 +15,8 @@ namespace PadawanProject.Models
         public string Nome { get; set; }
         public string Matricula { get; set; }
         public string Email { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
-        public DateTime? DataNasc { get; set; }
+        [JsonConverter(typeof(CustomDateTimeConverter))]
+        public DateTime DataNasc { get; set; }
         public bool Pcd { get; set; }
         public bool Cidade { get; set; }
         public bool Noturno { get; set; }

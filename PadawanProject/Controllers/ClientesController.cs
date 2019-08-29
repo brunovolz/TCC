@@ -20,6 +20,10 @@ namespace PadawanProject.Controllers
         // GET: api/Clientes
         public IQueryable<Cliente> GetClientes()
         {
+            var teste = new PadawanProject.Migrations.Configuration();
+
+            teste.Teste(db);
+
             return db.Clientes.Where(x => x.Ativo == true);
         }
 
