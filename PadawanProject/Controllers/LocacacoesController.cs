@@ -81,7 +81,7 @@ namespace PadawanProject.Controllers
             }
 
             db.Locacoes.Add(locacao);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = locacao.Id }, locacao);
         }

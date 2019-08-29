@@ -14,7 +14,6 @@ namespace PadawanProject.Models
     {
         [Key]
         public int Id { get; set; }
-        public virtual Cliente Cliente { get; set; }
         public virtual TipoVeiculo TipoVeiculo { get; set; }
         [ValidaLocacao(LocacaoEnum.ValidaPlaca)]
         public string Placa { get; set; }
@@ -25,6 +24,5 @@ namespace PadawanProject.Models
         public virtual Periodo Periodo { get; set; }
         public virtual Usuario Usuario{ get; set; }
         public virtual TermoUso Termo { get; set; }
-        public virtual StatusLocacao StatusLocacao { get; set; }
     }
 }
