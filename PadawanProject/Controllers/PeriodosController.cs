@@ -16,7 +16,7 @@ namespace PadawanProject.Controllers
     public class PeriodosController : ApiController
     {
         private ContextDB db = new ContextDB();
-        [Route("Api/Periodos/{TipoVeiculoPeriodoFK}")]
+        [Route("Api/Periodos/{TipoVeiculo}")]
         [HttpGet]
         public List<string> GetPeriodoPorTipoVeiculo(int tipoVeiculo)
         {
