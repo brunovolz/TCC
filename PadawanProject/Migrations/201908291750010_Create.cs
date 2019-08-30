@@ -174,7 +174,7 @@ namespace PadawanProject.Migrations
         {
             DropForeignKey("dbo.Modelo", "TipoModeloMarcaFK", "dbo.Marca");
             DropForeignKey("dbo.Locacao", "UsuarioId", "dbo.Usuario");
-            DropForeignKey("dbo.Locacao", "TermoId", "dbo.TermoUso");
+            DropForeignKey("dbo.Locacao", "AceitarTermoUso", "dbo.TermoUso");
             DropForeignKey("dbo.Locacao", "PeriodoId", "dbo.Periodo");
             DropForeignKey("dbo.Periodo", "TipoVeiculoPeriodoFK", "dbo.TipoVeiculo");
             DropForeignKey("dbo.Locacao", "MarcaId", "dbo.Marca");
@@ -183,7 +183,7 @@ namespace PadawanProject.Migrations
             DropIndex("dbo.Modelo", new[] { "TipoModeloMarcaFK" });
             DropIndex("dbo.Periodo", new[] { "TipoVeiculoPeriodoFK" });
             DropIndex("dbo.Marca", new[] { "TipoVeiculoMarcaFK" });
-            DropIndex("dbo.Locacao", new[] { "TermoId" });
+            DropIndex("dbo.Locacao", new[] { "AceitarTermoUso" });
             DropIndex("dbo.Locacao", new[] { "UsuarioId" });
             DropIndex("dbo.Locacao", new[] { "PeriodoId" });
             DropIndex("dbo.Locacao", new[] { "CorId" });

@@ -27,9 +27,10 @@ namespace PadawanProject.Models
         [ValidaLocacao(LocacaoEnum.ValidaUsuario)]
         public int UsuarioId { get; set; }
         [ValidaLocacao(LocacaoEnum.ValidaTermo)]
-        public bool AceitoTermoUso { get; set; } 
+        public bool AceitarTermoUso { get; set; }
+        public int TermoUsoId { get; set; }
         public int? StatusLocacaoFK { get; set; }
-        [ForeignKey("AceitoTermoUso")]
+        [ForeignKey("TermoUsoId")]
         public virtual TermoUso TermoUso { get; set; }
         [ForeignKey("PeriodoId")]
         public virtual Periodo Periodo { get; set; }
@@ -37,11 +38,7 @@ namespace PadawanProject.Models
         public virtual Cor Cor { get; set; }
         [ForeignKey("UsuarioId")]
         public virtual Usuario Usuario { get; set; }
-        //[ForeignKey("ModeloId")]
-        //public virtual Modelo Modelo { get; set; }
         [ForeignKey("MarcaId")]
         public virtual Marca Marca { get; set; }
-        //[ForeignKey("TipoVeiculoId")]
-        //public virtual TipoVeiculo TipoVeiculo { get; set; }
     }
 }

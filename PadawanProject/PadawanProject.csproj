@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201908301224492_Ceasar.Designer.cs">
       <DependentUpon>201908301224492_Ceasar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908301726276_LastUp.cs" />
+    <Compile Include="Migrations\201908301726276_LastUp.Designer.cs">
+      <DependentUpon>201908301726276_LastUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomDateTimeConverter.cs" />
     <Compile Include="Models\Marca.cs" />
@@ -292,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908301224492_Ceasar.resx">
       <DependentUpon>201908301224492_Ceasar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301726276_LastUp.resx">
+      <DependentUpon>201908301726276_LastUp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

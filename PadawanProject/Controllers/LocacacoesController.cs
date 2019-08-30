@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -79,12 +78,17 @@ namespace PadawanProject.Controllers
             {
                 return BadRequest(ModelState);
             }
+            locacao.TermoUsoId = db.TermosUso.FirstOrDefault(x => x.Ativo == true).Id;
+            
             locacao.StatusLocacaoFK = 2;
-
+            
             db.Locacoes.Add(locacao);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = locacao.Id }, locacao);
+
+            //return CreatedAtRoute("DefaultApi", new { id = locacao.Id }, locacao);
+            return Ok("Sua intenção de locação foi realizada com sucesso!  " +
+                "  Entraremos em contato para confirmar e seguir com as orientações de acesso");
         }
 
         // DELETE: api/Locacacoes/5
@@ -116,5 +120,34 @@ namespace PadawanProject.Controllers
         {
             return db.Locacoes.Count(e => e.Id == id) > 0;
         }
+        public static string EnviarEmailAprovados(string emailEnviarPara)
+        {
+            string seuEmail = "koyixefat@dot-mail.top";
+            string suaSenha = "123";
+            string seuNome = "Bruno";
+
+            MailMessage message = new MailMessage();
+            message.IsBodyHtml = true;
+            message.From = new MailAddress(seuEmail, seuNome);
+            message.To.Add(new MailAddress(emailEnviarPara));
+            message.Subject = "Aprovação de Cadastro";
+            message.Body = "Sua solicitação de aluguel de vaga de garagem foi aprovada!";
+            using (var client = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587))
+            {
+                client.Credentials = new System.Net.NetworkCredential(seuEmail, suaSenha);
+                client.EnableSsl = true;
+
+                try
+                {
+                    client.Send(message);
+                    return "Email enviado!";
+                }
+                catch (Exception ex)
+                {
+                    return "Erro ao enviar email: " + ex.Message;
+                }
+            }
+        }
+
     }
 }
