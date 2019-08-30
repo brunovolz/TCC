@@ -16,8 +16,8 @@ namespace PadawanProject.Controllers
     public class PeriodosController : ApiController
     {
         private ContextDB db = new ContextDB();
-
-        // GET: api/Periodos
+        [Route("Api/Periodos/{TipoVeiculoPeriodoFK}")]
+        [HttpGet]
         public List<string> GetPeriodoPorTipoVeiculo(int tipoVeiculo)
         {
             var listaPeriodos = db.Periodos.Where(x => (x.TipoVeiculoPeriodoFK == tipoVeiculo)
@@ -31,6 +31,7 @@ namespace PadawanProject.Controllers
 
             return listaRetorno;
         }
+        // GET: api/Periodos
         public IQueryable<Periodo> GetPeriodos()
         {
             return db.Periodos.Where(x => x.Ativo == true); 

@@ -10,10 +10,5 @@ namespace PadawanProject.Enums
         ValidaNome,
         ValidaMatricula,
         ValidaEmail,
-        ValidaDataNasc,
-        ValidaPcd,
-        ValidaCidade,
-        ValidaNoturno,
-        ValidaCarona,
     }
 }

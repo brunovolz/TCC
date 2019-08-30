@@ -14,21 +14,23 @@ namespace PadawanProject.Models
     {
         [Key]
         public int Id { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaTipoVeiculo)]
         public int TipoVeiculoId { get; set; }
         [ValidaLocacao(LocacaoEnum.ValidaPlaca)]
         public string Placa { get; set; }
         [ValidaLocacao(LocacaoEnum.ValidaMarca)]
         public int? MarcaId { get; set; }
-        //public int? ModeloId { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaCor)]
         public int? CorId { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaPeriodo)]
         public int PeriodoId { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaUsuario)]
         public int UsuarioId { get; set; }
+        [ValidaLocacao(LocacaoEnum.ValidaTermo)]
         public int TermoId { get; set; }
         public int? StatusLocacaoFK { get; set; }
-        [ForeignKey("StatusLocacaoFK")]
-        public virtual StatusLocacao StatusLocacao { get; set; }
         [ForeignKey("TermoId")]
-        public virtual TermoUso Termo { get; set; }
+        public virtual TermoUso TermoUso { get; set; }
         [ForeignKey("PeriodoId")]
         public virtual Periodo Periodo { get; set; }
         [ForeignKey("CorId")]

@@ -31,18 +31,6 @@ namespace PadawanProject.Validacoes
                         { return ValidarMatricula(value, validationContext.DisplayName); }
                     case UsuarioEnum.ValidaEmail:
                         { return ValidarEmail(value); }
-                    case UsuarioEnum.ValidaDataNasc:
-                        //{ return ValidarDataNasc(value, validationContext.DisplayName); }
-                    case UsuarioEnum.ValidaPcd:
-                        break;
-                    case UsuarioEnum.ValidaCidade:
-                        break;
-                    case UsuarioEnum.ValidaNoturno:
-                        break;
-                    case UsuarioEnum.ValidaCarona:
-                        break;
-                    default:
-                        break;
                 }
             }
             return new ValidationResult($"O campo {validationContext.DisplayName} é obrigatório");
@@ -64,7 +52,7 @@ namespace PadawanProject.Validacoes
             if (result)
                 return ValidationResult.Success;
 
-            return new ValidationResult($"EMAIL inválido!");
+            return new ValidationResult($"E-mail inválido!");
         }
         private ValidationResult ValidarMatricula(object value, string displayField)
         {
@@ -72,22 +60,13 @@ namespace PadawanProject.Validacoes
                 return new ValidationResult($"O campo {displayField} é obrigatório!");
 
             var matricula = db.Usuarios.FirstOrDefault(x => x.Matricula.ToString() == (string)value);
-            if (matricula != null)
+            if (matricula == null)
                 return ValidationResult.Success;
             
-            if (matricula == null)
-                return new ValidationResult($"Matrícula não está registrada!");
+            if (matricula != null)
+                return new ValidationResult($"Matrícula já registrada!");
 
             return new ValidationResult($"O campo {displayField} é inválido.");
-        }
-        public static int PegarIdade(DateTime AnoAniversario)
-        {
-            DateTime dateTime = DateTime.Now;
-            int idade = dateTime.Year - AnoAniversario.Year;
-
-            if (dateTime.Month < AnoAniversario.Month || (dateTime.Month == AnoAniversario.Month && dateTime.Day < AnoAniversario.Day))
-                idade--;
-            return idade;
         }
     }
 }

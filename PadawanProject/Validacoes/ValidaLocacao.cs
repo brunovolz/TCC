@@ -22,29 +22,24 @@ namespace PadawanProject.Validacoes
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (value != null)
+            switch (validarLocacao)
             {
-                switch (validarLocacao)
-                {
-                    case LocacaoEnum.ValidaTipoVeiculo:
-                        { return ValidarTVeiculo(value, validationContext.DisplayName); }
-                    case LocacaoEnum.ValidaMarca:
-                        { return ValidarMarca(value, validationContext.DisplayName); }
-                    case LocacaoEnum.ValidaModelo:
-                        { return ValidarModelo(value, validationContext.DisplayName); }
-                    case LocacaoEnum.ValidaPlaca:
-                        { return ValidarPlaca(value, validationContext); }
-                    case LocacaoEnum.ValidaCor:
-                        { return ValidarCor(value); }
-                    case LocacaoEnum.ValidaPeriodo:
-                        { return ValidarPeriodo(value, validationContext.DisplayName); }
-                    case LocacaoEnum.ValidaUsuario:
-                        { return ValidarUsuario(value, validationContext.DisplayName); }
-                    case LocacaoEnum.ValidaTermo:
-                        { return ValidarTermo(value, validationContext.DisplayName); }
-                }
+                case LocacaoEnum.ValidaTipoVeiculo:
+                    { return ValidarTVeiculo(value, validationContext.DisplayName); }
+                case LocacaoEnum.ValidaMarca:
+                    { return ValidarMarca(value, validationContext); }
+                case LocacaoEnum.ValidaPlaca:
+                    { return ValidarPlaca(value, validationContext); }
+                case LocacaoEnum.ValidaCor:
+                    { return ValidarCor(value, validationContext); }
+                case LocacaoEnum.ValidaPeriodo:
+                    { return ValidarPeriodo(value, validationContext.DisplayName); }
+                case LocacaoEnum.ValidaUsuario:
+                    { return ValidarUsuario(value, validationContext.DisplayName); }
+                case LocacaoEnum.ValidaTermo:
+                    { return ValidarTermo(value, validationContext.DisplayName); }
             }
-            return new ValidationResult($"O campo {validationContext.DisplayName} é obrigatório");
+            return ValidationResult.Success;
         }
         private ValidationResult ValidarTVeiculo(object value, string displayField)
         {
@@ -60,21 +55,27 @@ namespace PadawanProject.Validacoes
 
             return new ValidationResult($"O campo {displayField} é inválido.");
         }
-        private ValidationResult ValidarMarca(object value, string displayField)
+        private ValidationResult ValidarMarca(object value, ValidationContext validationContext)
         {
-            if (value == null)
-                return new ValidationResult($"O campo {displayField} é obrigatório!");
+            Locacao veiculo = (Locacao)validationContext.ObjectInstance;
 
-            var tipo = db.Marcas.FirstOrDefault(x => x.Id == (int)value); //verificar se já existe no banco
-            if (tipo == null)
-                return new ValidationResult("Esta marca não consta no banco de dados!");
-
-            if (tipo != null)
+            if (veiculo.TipoVeiculoId > 2 && value == null)
                 return ValidationResult.Success;
 
-            return new ValidationResult($"O campo {displayField} é inválido.");
+            if (veiculo.TipoVeiculoId <= 2)
+            {
+                var tipo = db.Marcas.FirstOrDefault(x => x.Id == (int)value);
+                {
+                    if (tipo == null)
+                        return new ValidationResult("Marca indisponível!");
+                    if (tipo != null)
+                        return ValidationResult.Success;
+                }
+            }
+
+            return new ValidationResult("Marca indisponível");
         }
-        private ValidationResult ValidarModelo(object value, string displayField)
+        /*private ValidationResult ValidarModelo(object value, string displayField)
         {
             if (value == null)
                 return new ValidationResult($"O campo {displayField} é obrigatório!");
@@ -87,7 +88,7 @@ namespace PadawanProject.Validacoes
                 return ValidationResult.Success;
 
             return new ValidationResult($"O campo {displayField} é inválido.");
-        }
+        }*/
         private ValidationResult ValidarPlaca(object value, ValidationContext validationContext)
         {
             Locacao veiculo = (Locacao)validationContext.ObjectInstance;
@@ -118,15 +119,20 @@ namespace PadawanProject.Validacoes
             }
             return new ValidationResult($"O campo {validationContext.DisplayName} deve ser informado");
         }
-        private ValidationResult ValidarCor(object value)
+        private ValidationResult ValidarCor(object value, ValidationContext validationContext)
         {
-            if (value == null)
-                return new ValidationResult("O campo Cor é obrigatório!");
-            var corExistente = db.Cores.FirstOrDefault(x => x.Id == (int)value);
-            if (corExistente == null)
-                return new ValidationResult("Cor indisponível!");
-            if (corExistente != null)
+            Locacao veiculo = (Locacao)validationContext.ObjectInstance;
+            if (veiculo.TipoVeiculoId > 2 && value == null)
                 return ValidationResult.Success;
+
+            if (veiculo.TipoVeiculoId <= 2)
+            {
+                var corExistente = db.Cores.FirstOrDefault(x => x.Id == (int)value);
+                if (corExistente == null)
+                    return new ValidationResult("Cor indisponível!");
+                if (corExistente != null)
+                    return ValidationResult.Success;
+            }
 
             return new ValidationResult($"O campo  é inválido.");
         }
