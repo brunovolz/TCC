@@ -37,7 +37,7 @@ namespace PadawanProject.Validacoes
                 case LocacaoEnum.ValidaUsuario:
                     { return ValidarUsuario(value, validationContext.DisplayName); }
                 case LocacaoEnum.ValidaTermo:
-                    { return ValidarTermo(value, validationContext.DisplayName); }
+                    { return ValidarTermo(value); }
             }
             return ValidationResult.Success;
         }
@@ -46,7 +46,7 @@ namespace PadawanProject.Validacoes
             if (value == null)
                 return new ValidationResult($"O campo {displayField} é obrigatório!");
 
-            var tipo = db.TipoVeiculos.FirstOrDefault(x => x.Id == (int)value); //verificar se já existe no banco
+            var tipo = db.TipoVeiculos.FirstOrDefault(x => x.Id == (int)value);
             if (tipo == null)
                 return new ValidationResult("Veículo inválido!");
 
@@ -164,19 +164,12 @@ namespace PadawanProject.Validacoes
 
             return new ValidationResult($"O campo {displayField} é inválido.");
         }
-        private ValidationResult ValidarTermo(object value, string displayField)
+        private ValidationResult ValidarTermo(object value)
         {
-            if (value == null)
-                return new ValidationResult($"O campo {displayField} é obrigatório!");
-
-            var termo = db.TermosUso.FirstOrDefault(x => x.Id == (int)value);
-            if (termo == null)
-                return new ValidationResult($"{displayField} inválido");
-
-            if (termo != null)
+            if((bool)value)
                 return ValidationResult.Success;
 
-            return new ValidationResult($"O campo {displayField} é inválido.");
+            return new ValidationResult("É obrigatório aceitar o Termo de Uso");
         }
     }
 }

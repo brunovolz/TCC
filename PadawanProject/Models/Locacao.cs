@@ -27,9 +27,9 @@ namespace PadawanProject.Models
         [ValidaLocacao(LocacaoEnum.ValidaUsuario)]
         public int UsuarioId { get; set; }
         [ValidaLocacao(LocacaoEnum.ValidaTermo)]
-        public int TermoId { get; set; }
+        public bool AceitoTermoUso { get; set; } 
         public int? StatusLocacaoFK { get; set; }
-        [ForeignKey("TermoId")]
+        [ForeignKey("AceitoTermoUso")]
         public virtual TermoUso TermoUso { get; set; }
         [ForeignKey("PeriodoId")]
         public virtual Periodo Periodo { get; set; }
