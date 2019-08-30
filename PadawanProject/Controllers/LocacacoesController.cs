@@ -85,7 +85,6 @@ namespace PadawanProject.Controllers
             db.Locacoes.Add(locacao);
             await db.SaveChangesAsync();
 
-
             //return CreatedAtRoute("DefaultApi", new { id = locacao.Id }, locacao);
             return Ok("Sua intenção de locação foi realizada com sucesso!  " +
                 "  Entraremos em contato para confirmar e seguir com as orientações de acesso");
